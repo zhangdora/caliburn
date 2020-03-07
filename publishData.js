@@ -12,6 +12,7 @@ const publishData = [
     pay: '1000',
     pubDate: '2020/01/01',
     yesNo: '是',
+    status: '已完成',
     info: 'Tom'
   },{
     key: '2',
@@ -24,6 +25,7 @@ const publishData = [
     pay: '2000',
     pubDate: '2020/01/01',
     yesNo: '是',
+    status: '已完成',
     info: 'Jack'
   },{
     key: '3',
@@ -36,6 +38,7 @@ const publishData = [
     pay: '2000',
     pubDate: '2020/01/01',
     yesNo: '是',
+    status: '进行中',
     info: 'Tim'
   },{
     key: '4',
@@ -48,6 +51,7 @@ const publishData = [
     repu: '500',
     pubDate: '2020/01/01',
     yesNo: '是',
+    status: '进行中',
     info: 'Kevin'
   },{
     key: '5',
@@ -60,6 +64,7 @@ const publishData = [
     repu: '200',
     pubDate: '2020/01/01',
     yesNo: '否',
+    status: '',
     info: ''
   },{
     key: '6',
@@ -72,6 +77,7 @@ const publishData = [
     repu: '700',
     pubDate: '2020/01/01',
     yesNo: '否',
+    status: '',
     info: ''
   },{
     key: '7',
@@ -84,6 +90,7 @@ const publishData = [
     repu: '600',
     pubDate: '2020/01/01',
     yesNo: '否',
+    status: '',
     info: ''
   },{
     key: '8',
@@ -96,6 +103,7 @@ const publishData = [
     repu: '500',
     pubDate: '2020/01/01',
     yesNo: '否',
+    status: '',
     info: ''
   },{
     key: '9',
@@ -108,6 +116,7 @@ const publishData = [
     repu: '300',
     pubDate: '2020/01/01',
     yesNo: '否',
+    status: '',
     info: ''
   }
 ];

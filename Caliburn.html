@@ -18,7 +18,7 @@
     <div id="root"></div>
     <script type="text/babel">
     const {HashRouter, Route, Switch} = ReactRouterDOM;
-    const {Menu, Button, Row, Dropdown, Table, Modal, Col, Input, TextArea} = antd; 
+    const {Menu, Button, Row, Dropdown, Table, Modal, Col, Input, TextArea, Form} = antd; 
     const publishColumns = [{
           title: '行业',
           dataIndex: 'industry'
@@ -51,6 +51,9 @@
       }, {
         title: '是否已接单',
         dataIndex: 'yesNo',
+      }, {
+        title: '状态',
+        dataIndex: 'status',
       }, {
         title: '接单方信息',
         dataIndex: 'info',
@@ -109,7 +112,7 @@
           <div className="content1">
             <div className="contentText1">
               <div className="title1">Caliburn</div>
-              <div className="info1">人以及人之间协同关系的区块链孪生</div>
+              <div className="info1">人与连接的区块链孪生</div>
             </div>
             <div className="btnContent">
               <Button className='button2' style={{marginRight: 250}} onClick={() => this.props.history.push('publish')}>
@@ -131,7 +134,8 @@
       constructor() {
         super();
         this.state = {
-          pubVisible: false
+          pubVisible: false,
+          publishDataVal: publishData
         }
       }
       showPubModal = () => {
@@ -145,6 +149,27 @@
           pubVisible: false
         });
       };
+
+      handleConfirm = e => {
+        let data = publishData;
+        data.push({
+                key: '10',
+                industry: '软件',
+                brief: '数据分析',
+                reqDoc: '',
+                skill: "python",
+                pay: '2000',
+                delivDate: '2020/03/11',
+                repu: '300',
+                pubDate: '2020/01/01',
+                yesNo: '否',
+                info: ''
+              });
+        this.setState({
+          pubVisible: false,
+          publishDataVal: data
+        });
+      }
       
       render = () => {
         let menu1 = <Menu>
@@ -192,23 +217,23 @@
               <Button className="postTaskBtn" onClick={() => {this.setState({pubVisible: true})}}>发布新任务</Button>
             </Row>
             <Row className="table">
-              <Table columns={publishColumns} dataSource={publishData} />
+              <Table columns={publishColumns} dataSource={this.state.publishDataVal} />
             </Row>
           </Row>
           
           <Modal
             title="发布新任务"
             visible={this.state.pubVisible}
-            onOk={this.handleCancel}
+            onOk={this.handleConfirm}
             onCancel={this.handleCancel}>
-            {
-              publishTask.map((item, index) => {
-                return <Row className='postRow' key={index}>
-                          <Col span={8}>{item.title}</Col>
-                          <Col span={15}><Input /></Col>
-                        </Row>
-              })
-            }
+              {
+                publishTask.map((item, index) => {
+                  return <Row className='postRow' key={index}>
+                            <Col span={8}>{item.title}</Col>
+                            <Col span={15}><Input /></Col>
+                          </Row>
+                })
+              }
           </Modal>
 
         </div>;
@@ -296,7 +321,7 @@
 
       render = () => {
         return <div className="content">
-          <div className="menuBar">
+          <div className="publishMenuBar">
             <div className='menuInfo'><img src="./img/logo.png" className="logo" onClick={() => this.props.history.push('/')}/>Caliburn</div>
             <img src="./img/userIcon.svg" className="userIcon" onClick={() => this.props.history.push('/userCenter')}/>
           </div>
