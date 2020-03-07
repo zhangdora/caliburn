@@ -160,9 +160,6 @@ const bioData =[
     title: '性别',
     value: '男'
   },{
-    title: '姓名',
-    value: 'leo'
-  },{
     title: '教育背景',
     value: '研究生'
   },{
